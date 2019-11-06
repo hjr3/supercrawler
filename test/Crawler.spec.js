@@ -73,7 +73,7 @@ describe("Crawler", function () {
           cb(null, {
             headers: headers,
             statusCode: pageStatusCode,
-            body: new Buffer(pageBody)
+            body: Buffer.from(pageBody)
           });
         }, 1);
       } else {
@@ -87,7 +87,7 @@ describe("Crawler", function () {
               "content-type": "text/plain"
             },
             statusCode: robotsStatusCode,
-            body: new Buffer(robotsTxt)
+            body: Buffer.from(robotsTxt)
           });
         }, 1);
       }
@@ -751,7 +751,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         sinon.assert.calledWith(handler, sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html",
           contentType: "text/plain"
         }));
@@ -771,7 +771,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         sinon.assert.calledWith(handler, sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html",
           contentType: "text/html"
         }));
@@ -810,7 +810,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         expect(handler.calledWith(sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html"
         }))).to.equal(true);
         done();
@@ -829,7 +829,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         expect(handler.calledWith(sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html"
         }))).to.equal(true);
         done();
@@ -848,7 +848,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         expect(handler.calledWith(sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html"
         }))).to.equal(false);
         done();
@@ -867,7 +867,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         expect(handler.calledWith(sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html"
         }))).to.equal(true);
         done();
@@ -905,7 +905,7 @@ describe("Crawler", function () {
       setTimeout(function () {
         crawler.stop();
         sinon.assert.calledWith(handler, sinon.match({
-          body: sinon.match(new Buffer("<html><body>test</body></html>")),
+          body: sinon.match(Buffer.from("<html><body>test</body></html>")),
           url: "https://example.com/index1.html",
           contentType: "text/plain"
         }));
